@@ -1,0 +1,125 @@
+/* HEADER - Partie haute avec fond bleu doux et texte blanc */
+header.container {
+  background-color: #2A6EBB; /* bleu doux qui ne fait pas mal aux yeux */
+  color: white;
+}
+
+/* Tous les textes et liens dans le header en blanc */
+header.container, 
+header.container a, 
+header.container p, 
+header.container div {
+  color: white;
+}
+
+/* Spécifiquement le slogan en blanc */
+#slogan {
+  color: rgb(247, 242, 242) !important;
+}
+
+/* Boutons menu et notifications (texte et icônes) en blanc */
+#menu button.btn-link,
+#menu button.btn-link i {
+  color: white !important;
+}
+/* MENU DEROULANT - Ajustements */
+#dropdown-menu {
+  position: absolute;
+  top: 40px;          /* décale verticalement sous le bouton */
+  right: 0;           /* aligne à droite */
+  width: 150px;       /* largeur plus raisonnable */
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  padding: 10px 15px;
+  z-index: 1000;
+}
+
+#dropdown-menu button,
+#dropdown-menu select {
+  width: 100%;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: black;
+}
+
+#dropdown-menu button:last-child {
+  margin-bottom: 0;
+}
+/* Styles par défaut (clair) - déjà présents */
+body.dark-mode {
+  background-color: #121212; /* fond sombre */
+  color: #f0f0f0 !important; /* texte clair / blanc cassé */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Forcer le texte blanc dans toutes les sections */
+body.dark-mode, 
+body.dark-mode * {
+  color: #f0f0f0 !important;
+}
+
+/* Et pour les liens aussi */
+body.dark-mode a, 
+body.dark-mode a:hover,
+body.dark-mode #menu button.btn-link,
+body.dark-mode #menu button.btn-link i {
+  color: #bbb !important;
+}
+body.dark-mode #section1 i, 
+body.dark-mode #section1 svg {
+  color: #4DA6FF !important; /* un bleu clair visible sur fond sombre */
+}
+
+
+/* ALIGNEMENT DES TITRES H1 (Services, Derniers destinataires, Derniers services) */
+h1 {
+  margin-left: 20px; /* même marge à gauche pour tous les h1 */
+  color: black; /* texte en noir */
+}
+
+/* CORPS DE LA PAGE - fond blanc antique doux */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2eee9; /* blanc antique */
+  color: #333;
+}
+
+/* SECTION 1 - carré blanc normal qui chevauche le header */
+#section1 {
+  background-color: #FFFFFF; /* blanc normal */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-top: -50px; /* remonte sur le header */
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+  color: black; /* texte en noir par défaut dans la section */
+}
+
+/* Pour garder les icônes en bleu dans la section1, on cible les icônes spécifiquement */
+#section1 i, 
+#section1 svg {
+  color: #2A6EBB; /* bleu doux */
+}
+
+/* FOOTER - fond blanc normal, texte sombre */
+footer.container {
+  background-color: #FFFFFF;
+  color: #333;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 1px solid #ccc;
+}
+
+/* Liens dans le footer */
+footer.container a {
+  color: #333;
+  text-decoration: none;
+}
+
+footer.container a:hover {
+  color: #2A6EBB;
+}
