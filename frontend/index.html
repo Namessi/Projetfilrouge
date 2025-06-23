@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- Encodage et responsive -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Titre de la page -->
+        <title data-i18n="titre">Application de Gestion de Budget Personnel</title>
+
+        <!-- Font Awesome pour les icônes -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+        <!-- Bootstrap 5 pour le style -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+        <!-- Feuille de style personnalisée -->
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- Script JavaScript différé -->
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <!-- HEADER PRINCIPAL -->
+        <header class="container my-3 border p-3 rounded">
+            <nav class="d-flex justify-content-between align-items-center">
+
+                <!-- Partie gauche : photo de l'utilisateur et slogan -->
+                <div class="d-flex align-items-center">
+
+                    <!-- Bloc photo de profil -->
+                    <div id="photo" class="me-3">
+                        <img src="image/photopro.png" alt="Photo utilisateur" class="rounded-circle" style="width:50px; height:50px;" />
+                    </div>
+
+                    <!-- Bloc slogan + nom -->
+                    <div id="slogan" class="text-start">
+                        <div class="fw-bold">Namessi, Kossi</div>
+                        <p class="mb-0 fst-italic" style="font-size: 0.9rem;" data-i18n="slogan">économisons votre argent</p>
+                    </div>
+                </div>
+
+                <!-- Partie droite : menu et notifications -->
+                <div id="menu" class="d-flex align-items-center position-relative">
+
+                    <!-- Bouton menu hamburger -->
+                    <button id="menu-toggle" type="button" class="btn btn-link text-primary p-0 text-decoration-none me-3" aria-label="Menu">
+                        <i class="fas fa-bars fa-lg"></i>
+                    </button>
+
+                    <!-- Bouton notifications -->
+                    <button type="button" class="btn btn-link text-primary p-0 text-decoration-none" aria-label="Notifications">
+                        <i class="fas fa-bell fa-lg"></i>
+                    </button>
+
+                    <!-- Menu déroulant (masqué par défaut) -->
+                    <div id="dropdown-menu" class="position-absolute end-0 mt-2 bg-white border rounded shadow p-3 d-none" style="min-width: 180px; z-index: 1000;">
+
+                        <!-- Bouton pour basculer le thème clair/sombre -->
+                        <div class="mb-3">
+                            <button id="theme-toggle" class="btn btn-outline-secondary w-100" data-i18n="mode.sombre">
+                                <i class="fas fa-moon me-2"></i> Mode sombre
+                            </button>
+                        </div>
+
+                        <!-- Sélecteur de langue -->
+                        <div class="mb-3">
+                            <select id="language-select" class="form-select form-select-sm" aria-label="Choix de la langue">
+                                <option value="fr" selected data-i18n="lang.fr">🇫🇷 Français</option>
+                                <option value="en" data-i18n="lang.en">🇬🇧 English</option>
+                                <option value="es" data-i18n="lang.es">🇪🇸 Español</option>
+                            </select>
+                        </div>
+
+                        <!-- Bouton de déconnexion -->
+                        <div>
+                            <button id="logout-btn" class="btn btn-outline-danger w-100" data-i18n="deconnexion">
+                                <i class="fas fa-sign-out-alt me-2"></i> Déconnexion
+                            </button>
+                        </div>
+                    </div> <!-- Fin menu déroulant -->
+                </div> <!-- Fin menu droite -->
+            </nav>
+        </header>
+<main>
+    <!-- Section 1 : Affichage du solde et des actions rapides -->
+    <section id="section1" class="container my-4 border p-3 rounded">
+
+        <!-- Ligne du haut avec le solde et les récompenses -->
+        <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-3">
+
+            <!-- Colonne de gauche : Solde -->
+            <div id="solde" class="w-50 text-start fw-bold border-end pe-3" data-i18n="votre.solde">
+                Votre solde
+            </div>
+
+            <!-- Colonne de droite : Récompense -->
+            <div id="Récompense" class="w-50 text-end fw-bold ps-3" data-i18n="recompense">
+                Récompense
+            </div>
+        </div>
+
+        <!-- Ligne contenant 4 boutons d'action, centrés -->
+        <div class="row text-center mt-3">
+
+            <!-- Bouton Transfert -->
+            <div class="col-3 mb-3">
+                <button type="button" class="btn btn-link text-primary w-100 p-0 text-decoration-none">
+                    <i class="fas fa-exchange-alt fa-2x mb-2"></i><br />
+                    <span data-i18n="transfert">Transfert</span>
+                </button>
+            </div>
+
+            <!-- Bouton Carte -->
+            <div class="col-3 mb-3">
+                <button type="button" class="btn btn-link text-primary w-100 p-0 text-decoration-none">
+                    <i class="fas fa-credit-card fa-2x mb-2"></i><br />
+                    <span data-i18n="carte">Carte</span>
+                </button>
+            </div>
+
+            <!-- Bouton QRcode -->
+            <div class="col-3 mb-3">
+                <button type="button" class="btn btn-link text-primary w-100 p-0 text-decoration-none">
+                    <i class="fas fa-qrcode fa-2x mb-2"></i><br />
+                    <span data-i18n="mon.qrcode">Mon QRcode</span>
+                </button>
+            </div>
+
+            <!-- Bouton Recharger -->
+            <div class="col-3 mb-3">
+                <button type="button" class="btn btn-link text-primary w-100 p-0 text-decoration-none">
+                    <i class="fas fa-wallet fa-2x mb-2"></i><br />
+                    <span data-i18n="recharger">Recharger</span>
+                </button>
+            </div>
+
+        </div> <!-- Fin ligne des 4 icônes -->
+    </section>
+
+<!-- Section 2 : Services disponibles -->
+    <section id="section2" class="container my-4">
+
+    <!-- Titre de la section et lien "tout voir" -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 data-i18n="vos.services">Vos services</h1>
+        <div class="voir" data-i18n="tout.voir">tout voir</div>
+    </div>
+
+    <!-- Grille d'icônes de services -->
+    <div class="row text-center">
+
+        <!-- Service Mobile -->
+        <div class="col-3 mb-4">
+            <i class="fas fa-mobile-alt fa-3x text-primary mb-2"></i>
+            <p data-i18n="service.mobile">Mobile</p>
+        </div>
+
+        <!-- Service Internet -->
+        <div class="col-3 mb-4">
+            <i class="fas fa-wifi fa-3x text-primary mb-2"></i>
+            <p data-i18n="service.internet">Internet</p>
+        </div>
+
+        <!-- Service Factures -->
+        <div class="col-3 mb-4">
+            <i class="fas fa-file-invoice-dollar fa-3x text-primary mb-2"></i>
+            <p data-i18n="service.factures">Factures</p>
+        </div>
+
+        <!-- Service Électricité -->
+        <div class="col-3 mb-4">
+            <i class="fas fa-bolt fa-3x text-primary mb-2"></i>
+            <p data-i18n="service.electricite">Électricité</p>
+        </div>
+
+        <!-- Service Cinéma -->
+        <div class="col-3 mb-4">
+            <i class="fas fa-film fa-3x text-primary mb-2"></i>
+            <p data-i18n="service.cinema">Cinéma</p>
+        </div>
+
+        <!-- Service Eau -->
+        <div class="col-3 mb-4">
+            <i class="fas fa-tint fa-3x text-primary mb-2"></i>
+            <p data-i18n="service.eau">Facture d'eau</p>
+        </div>
+
+        <!-- Service Bon d'achat -->
+        <div class="col-3 mb-4">
+            <i class="fas fa-gift fa-3x text-primary mb-2"></i>
+            <p data-i18n="service.bon">Bon d'achat</p>
+        </div>
+
+        <!-- Service Marché -->
+        <div class="col-3 mb-4">
+            <i class="fas fa-store fa-3x text-primary mb-2"></i>
+            <p data-i18n="service.marche">Marché</p>
+        </div>
+
+    </div> <!-- Fin ligne des services -->
+
+    <!-- SECTION 3 - Derniers destinataires et services récents -->
+    <section id="section3" class="my-5 w-100">
+
+        <!-- TITRE DESTINATAIRES -->
+        <div class="px-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <!-- Titre de section avec traduction -->
+                <h1 class="mb-0" data-i18n="derniers_destinataires">Les derniers destinataires et services</h1>
+                <!-- Lien "tout voir" traduisible -->
+                <a href="#" class="text-decoration-none text-primary small" data-i18n="tout_voir">Tout voir</a>
+            </div>
+        </div>
+
+        <!-- DESTINATAIRES SCROLLABLE -->
+        <div class="w-100 d-flex justify-content-center">
+            <div class="d-flex overflow-auto" style="gap: 2rem; padding: 0 1rem;">
+                <div class="text-center flex-shrink-0">
+                    <img src="images/user1.jpg" alt="Alice" class="rounded-circle" style="width: 60px; height: 60px;">
+                    <div class="small mt-2">Alice</div>
+                </div>
+                <div class="text-center flex-shrink-0">
+                    <img src="images/user2.jpg" alt="Bob" class="rounded-circle" style="width: 60px; height: 60px;">
+                    <div class="small mt-2">Bob</div>
+                </div>
+                <div class="text-center flex-shrink-0">
+                    <img src="images/user3.jpg" alt="Charlie" class="rounded-circle" style="width: 60px; height: 60px;">
+                    <div class="small mt-2">Charlie</div>
+                </div>
+                <div class="text-center flex-shrink-0">
+                    <img src="images/user4.jpg" alt="Diane" class="rounded-circle" style="width: 60px; height: 60px;">
+                    <div class="small mt-2">Diane</div>
+                </div>
+            </div>
+        </div>
+
+<!-- ESPACE ENTRE BLOCS -->
+<div style="height: 2rem;"></div>
+
+<div class="px-3">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+  </div>
+</div>
+
+<!-- SERVICES SCROLLABLE -->
+<div class="w-100 d-flex justify-content-center">
+  <div class="d-flex overflow-auto" style="gap: 2rem; padding: 0 1rem;">
+    <!-- Chaque service avec texte traduisible -->
+    <div class="text-center flex-shrink-0">
+      <i class="fas fa-mobile-alt text-primary" style="font-size: 36px;"></i>
+      <div class="small mt-2" data-i18n="service_telephone">Téléphone</div>
+    </div>
+    <div class="text-center flex-shrink-0">
+      <i class="fas fa-wifi text-primary" style="font-size: 36px;"></i>
+      <div class="small mt-2" data-i18n="service_internet">Internet</div>
+    </div>
+    <div class="text-center flex-shrink-0">
+      <i class="fas fa-bolt text-primary" style="font-size: 36px;"></i>
+      <div class="small mt-2" data-i18n="service_electricite">Électricité</div>
+    </div>
+    <div class="text-center flex-shrink-0">
+      <i class="fas fa-tv text-primary" style="font-size: 36px;"></i>
+      <div class="small mt-2" data-i18n="service_tv">TV</div>
+    </div>
+    <div class="text-center flex-shrink-0">
+      <i class="fas fa-lightbulb text-primary" style="font-size: 36px;"></i>
+      <div class="small mt-2" data-i18n="service_energie">Énergie</div>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="container my-3 border-top pt-3">
+  <nav class="d-flex justify-content-between text-center">
+    <!-- Chaque élément de menu : icône + texte traduisible -->
+    <div class="flex-fill">
+      <a href="#" class="text-decoration-none text-dark d-block">
+        <i class="fas fa-home fa-lg mb-1"></i><br />
+        <span data-i18n="nav_accueil">Accueil</span>
+      </a>
+    </div>
+    <div class="flex-fill">
+      <a href="#" class="text-decoration-none text-dark d-block">
+        <i class="fas fa-history fa-lg mb-1"></i><br />
+        <span data-i18n="nav_historique">Historique</span>
+      </a>
+    </div>
+    <div class="flex-fill">
+      <a href="#" class="text-decoration-none text-dark d-block">
+        <i class="fas fa-gift fa-lg mb-1"></i><br />
+        <span data-i18n="nav_recompense">Récompense</span>
+      </a>
+    </div>
+    <div class="flex-fill">
+      <a href="#" class="text-decoration-none text-dark d-block">
+        <i class="fas fa-user fa-lg mb-1"></i><br />
+        <span data-i18n="nav_profil">Profil</span>
+      </a>
+    </div>
+  </nav>
+</footer>
+</body>
+</html>

@@ -1,0 +1,205 @@
+/* Corps de la page */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2eee9; /* blanc antique */
+  color: #333;
+}
+
+/* HEADER */
+header.container {
+  background-color: #2A6EBB;
+  color: white;
+}
+
+header.container a,
+header.container p,
+header.container div {
+  color: white;
+}
+
+#slogan {
+  color: white;
+}
+
+#menu button.btn-link,
+#menu button.btn-link i {
+  color: white;
+}
+
+/* MENU DÉROULANT */
+#dropdown-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 150px;
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  padding: 10px 15px;
+  z-index: 1000;
+}
+
+#dropdown-menu button,
+#dropdown-menu select {
+  width: 100%;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: black;
+}
+
+#dropdown-menu button:last-child {
+  margin-bottom: 0;
+}
+
+/* SECTION 1 */
+#section1 {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-top: -50px;
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+  color: black;
+}
+
+#section1 i,
+#section1 svg {
+  color: #2A6EBB;
+}
+
+/* TITRES */
+h1 {
+  margin-left: 20px;
+  color: black;
+}
+
+/* FOOTER */
+footer.container {
+  background-color: #FFFFFF;
+  color: #333;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 1px solid #ccc;
+}
+
+footer.container a {
+  color: #333;
+  text-decoration: none;
+}
+
+footer.container a:hover {
+  color: #2A6EBB;
+}
+
+
+/*  MODE SOMBRE  */
+/* MODE CLAIR PAR DÉFAUT */
+
+body.dark-mode {
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Textes généraux */
+body.dark-mode a,
+body.dark-mode a:hover,
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode li,
+body.dark-mode div {
+  color: #e0e0e0;
+}
+
+/* HEADER */
+body.dark-mode header.container {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode header.container a,
+body.dark-mode header.container div,
+body.dark-mode header.container p {
+  color: #e0e0e0;
+}
+
+body.dark-mode #slogan {
+  color: #e0e0e0;
+}
+
+body.dark-mode #menu button.btn-link,
+body.dark-mode #menu button.btn-link i {
+  color: #e0e0e0;
+}
+
+/* MENU DÉROULANT */
+body.dark-mode #dropdown-menu {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+}
+
+body.dark-mode #dropdown-menu button,
+body.dark-mode #dropdown-menu select {
+  color: #e0e0e0;
+  background-color: #262626;
+  border: none;
+}
+
+/* SECTION 1 */
+body.dark-mode #section1 {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode #section1 i,
+body.dark-mode #section1 svg {
+  color: #4DA6FF;
+}
+
+/* FOOTER MODE SOMBRE  */
+body.dark-mode footer.container {
+  background-color: #121212; /* fond plus sombre pour contraster */
+  color: #f1f1f1;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Liens dans le footer */
+body.dark-mode footer.container a {
+  color: #f1f1f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode footer.container a:hover {
+  color: #4DA6FF; /* couleur d’accent au survol */
+}
+
+/* Icônes dans le footer */
+body.dark-mode footer.container i,
+body.dark-mode footer.container svg {
+  color: #4DA6FF;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode footer.container i:hover,
+body.dark-mode footer.container svg:hover {
+  color: #66C2FF;
+}
+
+/* Texte spécifique dans le footer */
+body.dark-mode footer.container p,
+body.dark-mode footer.container li,
+body.dark-mode footer.container span {
+  color: #e0e0e0;
+}
